@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Liste des pays</h1>
+
+{% for country in countries %}
+
+<div>
+    
+{{ country.name }} - {{ country.capital }}</li>
+<button><a href="{{ path('detailPage', {'id': country.id}) }}">Détails</a></button>
+    
+</div>
+
+{% endfor %}
+
+{% endblock %}

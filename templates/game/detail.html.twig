@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{# Bloc destiné à recevoir le CSS spécifique à la page #}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+<h1>Détail du Pays</h1>
+
+<div>
+    <ul>
+        <li>Pays : {{ country.name }}</li>
+        <li>Capital : {{ country.capital }}</li>
+        <li>Langue: 
+            {% for language in country.language %}
+                {{ language.name }}
+            {% endfor %}
+        </li>
+        <li>Boisson préférée: 
+        {% if country.preferedBeverage == null %}
+             /
+        {% else %}
+            {{ country.preferedBeverage.name }}
+        {% endif %}
+        </li>
+        <li>Nombre d'habitant: {{ country.numberOfInhabitants|number_format(0,"."," ") }}</li>
+        <li>Euros: 
+            {% if country.hasEuro == false %}
+                Non
+            {% else %}
+                Oui
+            {% endif %}
+        </li>
+    </ul>
+</div>
+
+
+{% endblock %}
